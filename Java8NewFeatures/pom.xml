@@ -15,12 +15,14 @@
     </properties>
 
     <dependencies>
+        <!--做单元测试的依赖-->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>${junit-version}</version>
         </dependency>
 
+        <!-- 注解提效的工具类的依赖-->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -28,11 +30,12 @@
             <scope>provided</scope>
         </dependency>
 
+        <!--用于提效的工具类的依赖-->
         <dependency>
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>
             <version>${hutool-version}</version>
         </dependency>
 
-    </dependencies>
+    </dependencies><build><plugins><plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-compiler-plugin</artifactId><configuration><source>8</source><target>8</target></configuration></plugin></plugins></build>
 </project>
