@@ -2,9 +2,9 @@ package com.pilot.function;
 
 import org.junit.Test;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 import java.util.function.Function;
+import java.util.function.Predicate;
 
 public class PlayFunction {
     @Test
@@ -42,4 +42,32 @@ public class PlayFunction {
         System.out.println(identity.apply("hello"));
     }
 
+    private void processFunction(Function<String, String> function, String inputString) {
+        String string = function.apply(inputString);
+        System.out.println(string.length());
+    }
+
+    @Test
+    // 定义一个方法，接受一个字符串和一个 Function<String, String> 类型的参数，然后返回处理后的字符串
+    public void processString() {
+        processFunction(String::trim, " hello, world! ");
+        processFunction(s -> s.substring(0, 4), " hello, world! ");
+    }
+
+    private List<String> filterFunction(List<String> words, Predicate<String> condition) {
+        ArrayList<String> list = new ArrayList<>();
+        words.forEach(s -> {
+            // 对字符串添加一个条件，判断是否满足
+            if (condition.test(s)) {
+                list.add(s);
+            }
+        });
+        return list;
+    }
+
+    @Test
+    public void filterList() {
+        List<String> words = Arrays.asList("apple", "banana", "cherry", "date");
+        System.out.println(filterFunction(words, s -> s.length() > 4));
+    }
 }

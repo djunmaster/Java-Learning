@@ -16,6 +16,7 @@ class Employee {
     private String name;
     private int age;
 }
+
 public class StreamAdvancedQuestionPractice {
     private List<Employee> getEmployeeList() {
         return Arrays.asList(
